@@ -18,7 +18,7 @@ const products = [
     name: 'MeatZZa',
     image:
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/food/peperoni.png',
-    price: 13.47,
+    price: 13.67,
   },
   {
     id: 4,

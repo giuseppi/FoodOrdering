@@ -1,11 +1,11 @@
 import products from '@assets/data/products';
 import ProductListItem from '@components/ProductListItem';
 import { Stack } from 'expo-router';
-import { FlatList, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 
 export default function MenuScreen() {
   return (
-    <View>
+    <View style={styles.background}>
       <Stack.Screen options={{ title: 'Menu' }} />
       <FlatList
         data={products}
@@ -17,3 +17,9 @@ export default function MenuScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: 'grey',
+  },
+});

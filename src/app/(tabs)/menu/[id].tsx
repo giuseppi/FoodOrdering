@@ -3,7 +3,7 @@ import products from '@assets/data/products';
 import Button from '@components/Button';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
-import { Image, Pressable, StyleSheet, Text, View, useColorScheme } from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 const sizes = ['S', 'M', 'L', 'XL'];
 
@@ -18,13 +18,9 @@ const ProductDetailsScreen = () => {
     console.log('added', selectedSize, 'to cart!');
   };
 
-  const colorScheme = useColorScheme();
-
   if (!product) {
     return <Text>Product not found!</Text>;
   }
-
-  const styles = colorScheme === 'dark' ? darkStyles : lightStyles;
 
   return (
     <View style={styles.container}>
@@ -78,55 +74,18 @@ const ProductDetailsScreen = () => {
 
 export default ProductDetailsScreen;
 
-const lightStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    flex: 1,
-    padding: 10,
-  },
-  image: {
-    width: '100%',
-    aspectRatio: 1,
-  },
-  text: {
-    color: 'black',
-    fontSize: 14,
-  },
-  sizes: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: 10,
-  },
-  sizeContainer: {
     backgroundColor: 'grey',
-    width: 50,
-    aspectRatio: 1,
-    borderRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  size: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: '500',
-  },
-  price: {
-    color: 'black',
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 'auto',
-  },
-});
-
-const darkStyles = StyleSheet.create({
-  container: {
-    backgroundColor: 'black',
     flex: 1,
     padding: 10,
   },
   image: {
     width: '100%',
     aspectRatio: 1,
+    backgroundColor: 'white',
+    borderRadius: 25,
+    marginBottom: 10,
   },
   text: {
     color: 'white',

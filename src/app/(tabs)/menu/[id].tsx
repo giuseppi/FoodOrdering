@@ -1,5 +1,6 @@
 import { defaultPizzaImage } from '@/src/components/ProductListItem';
 import products from '@assets/data/products';
+import Button from '@components/Button';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View, useColorScheme } from 'react-native';
@@ -12,6 +13,11 @@ const ProductDetailsScreen = () => {
   const [selectedSize, setSelectedSize] = useState('M');
 
   const product = products.find((p) => p.id.toString() === id);
+
+  const addToCart = () => {
+    console.log('added', selectedSize, 'to cart!');
+  };
+
   const colorScheme = useColorScheme();
 
   if (!product) {
@@ -60,6 +66,12 @@ const ProductDetailsScreen = () => {
       </View>
 
       <Text style={styles.price}>${product.price}</Text>
+      <Button
+        onPress={() => {
+          addToCart();
+        }}
+        text="Add to cart"
+      />
     </View>
   );
 };
@@ -102,6 +114,7 @@ const lightStyles = StyleSheet.create({
     color: 'black',
     fontSize: 18,
     fontWeight: 'bold',
+    marginTop: 'auto',
   },
 });
 
@@ -141,5 +154,6 @@ const darkStyles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+    marginTop: 'auto',
   },
 });
